@@ -8,3 +8,9 @@ It also has many bugs in the thread handling but is still usable.
 
 Any small help is appreciated (like fixing bugs, adding features, etc.)
 
+## TODO (you can help with these):
+- [ ] Create windows build script
+- [ ] Add a progress bar for the download
+- [ ] Fix the thread handling
+- [ ] Add a way to cancel the download
+open for more suggestions :)
