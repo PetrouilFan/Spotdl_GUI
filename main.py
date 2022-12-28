@@ -131,9 +131,6 @@ def create_window():
     spacer()
     root.mainloop()
 
-# q: How can end the program if the window is closed?
-# a:
-
 if __name__ == "__main__":
     global_error = ErrorHandler()
     spotdl = SpotDL(global_error)
