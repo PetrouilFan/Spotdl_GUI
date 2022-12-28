@@ -6,7 +6,6 @@ import subprocess
 import os
 import sys
 
-# TODO: Download each playlist in a separate folder
 SPOTDL_VERSION = "4.0.6"
 
 try:

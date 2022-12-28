@@ -18,4 +18,5 @@ Any small help is appreciated (like fixing bugs, adding features, etc.)
 - Add a progress bar for the download
 - Fix the thread handling
 - Add a way to cancel the download
+- Download each playlist in a separate folder
 - open for more suggestions :)
