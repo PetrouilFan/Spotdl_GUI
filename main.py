@@ -11,7 +11,8 @@ SPOTDL_VERSION = "4.0.6"
 try:
     os.chdir(sys._MEIPASS)
 except:
-    os.chdir(os.path.dirname(os.path.abspath(__file__)))
+    input("It seems like you are running this script from source. Please build the script with pyinstaller and run the executable. Press enter to exit.")
+    exit()
 exe_path = os.path.join(os.getcwd(), "spotdl-4.0.6.exe" if os.name == "nt" else "spotdl-4.0.6-linux")
 
 bitrates = ["128k", "192k", "256k", "320k"]
