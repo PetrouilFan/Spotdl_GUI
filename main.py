@@ -33,9 +33,8 @@ class SpotDL:
         self.global_error = global_error
 
     def download(self, url, bitrate):
-        os.chdir(download_path)
         try:
-            subprocess.check_output(f"{exe_path} download {url} --bitrate {bitrate}", shell=True)
+            subprocess.check_output(f"{exe_path} download {url} --bitrate {bitrate} --output {download_path}", shell=True)
             return "Download Finished"
         except subprocess.CalledProcessError as e:
             print("Error: " + e.output)
