@@ -5,6 +5,7 @@ import threading
 import subprocess
 import os
 import sys
+import signal
 
 SPOTDL_VERSION = "4.0.6"
 
@@ -41,6 +42,14 @@ class SpotDL:
             self.global_error.set_error(e.output)
             return e.output
 
+def signal_handler(sig, frame):
+    global download_thread
+    global window_thread
+    if download_thread and download_thread.is_alive():
+        download_thread._stop()
+    if window_thread and window_thread.is_alive():
+        window_thread._stop()
+    sys.exit(0)
 
 def create_window():
     root = tk.Tk()
@@ -131,12 +140,13 @@ def create_window():
     root.mainloop()
 
 if __name__ == "__main__":
+    signal.signal(signal.SIGINT, signal_handler)
     global_error = ErrorHandler()
     spotdl = SpotDL(global_error)
-    thread = threading.Thread(target=create_window)
-    thread.daemon = True
-    thread.start()
-    while thread.is_alive():
+    window_thread = threading.Thread(target=create_window)
+    window_thread.daemon = True
+    window_thread.start()
+    while window_thread.is_alive():
         if global_error.error:
             print(global_error.error_message)
         time.sleep(1)
