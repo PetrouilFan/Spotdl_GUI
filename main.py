@@ -7,14 +7,14 @@ import os
 import sys
 import signal
 
-SPOTDL_VERSION = "4.0.6"
+SPOTDL_VERSION = os.environ.get("SPOTDL_VERSION")
 
 try:
     os.chdir(sys._MEIPASS)
 except:
     input("It seems like you are running this script from source. Please build the script with pyinstaller and run the executable. Press enter to exit.")
     exit()
-exe_path = os.path.join(os.getcwd(), "spotdl-4.0.6.exe" if os.name == "nt" else "spotdl-4.0.6-linux")
+exe_path = os.path.join(os.getcwd(), f"spotdl-{SPOTDL_VERSION}.exe" if os.name == "nt" else f"spotdl-{SPOTDL_VERSION}-linux")
 
 bitrates = ["128k", "192k", "256k", "320k"]
 download_path  = None
