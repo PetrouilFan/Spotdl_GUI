@@ -7,8 +7,9 @@ import os
 import sys
 import signal
 
-SPOTDL_VERSION = os.environ.get("SPOTDL_VERSION")
-
+with open("version", "r") as f:
+    SPOTDL_VERSION = f.read().strip()
+    
 try:
     os.chdir(sys._MEIPASS)
 except:
